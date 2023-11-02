@@ -25,7 +25,7 @@ define sysctl (
   $enforce = true,
 ) {
 
-  include '::sysctl::base'
+  include 'sysctl::base'
 
   # If we have a prefix, then add the dash to it
   if $prefix {
@@ -48,9 +48,7 @@ define sysctl (
   }
 
   if $ensure != 'absent' {
-
     # Present
-
     # The permanent change
     file { "/etc/sysctl.d/${sysctl_d_file}":
       ensure  => $ensure,
